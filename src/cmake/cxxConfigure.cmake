@@ -510,25 +510,25 @@ endif ()
 
 if (${GNU_COMPAT_COMPILER})
 
-  if (${DEVELOPER_MODE})
+  #if (${DEVELOPER_MODE})
     # some compiler versions will produce warnings with no reasonable workaround,
     # turn Werror off in this case
     #
     # a very common example are warnings from boost generated despite this library
     # being identified as a system header
     #
-    set(IS_WERROR true)
-    if (${CMAKE_CXX_COMPILER_ID} STREQUAL "GNU")
-        if (${COMPILER_VERSION} VERSION_LESS "4.2")
-            set(IS_WERROR false)
-        endif ()
-    endif ()
+    #set(IS_WERROR true)
+    #if (${CMAKE_CXX_COMPILER_ID} STREQUAL "GNU")
+    #    if (${COMPILER_VERSION} VERSION_LESS "4.2")
+    #        set(IS_WERROR false)
+    #    endif ()
+    #endif ()
 
-    if(${IS_WERROR})
-        message (STATUS "Building in developer mode: treating compiler warnings as errors")
-        append_args (CMAKE_CXX_FLAGS "-Werror")
-    endif ()
-  endif ()
+    #if(${IS_WERROR})
+    #    message (STATUS "Building in developer mode: treating compiler warnings as errors")
+    #    append_args (CMAKE_CXX_FLAGS "-Werror")
+    #endif ()
+  #endif ()
 
   if (CMAKE_SYSTEM_PROCESSOR MATCHES "^i[67]86$")
     ##
